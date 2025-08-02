@@ -531,6 +531,15 @@ p {
         font-size: 3rem;
     }
     
+    .hero-photo {
+        max-width: 320px;
+        margin: 0 auto;
+    }
+    
+    .family-photo {
+        max-height: 400px;
+    }
+    
     .preview-grid {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(2, 1fr);
@@ -590,6 +599,17 @@ p {
         justify-content: center;
     }
     
+    .hero-photo {
+        max-width: 280px;
+        margin: 0 auto;
+        padding: 0.25rem;
+    }
+    
+    .family-photo {
+        max-height: 350px;
+        border-radius: 0.25rem;
+    }
+    
     .preview-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
@@ -636,6 +656,16 @@ p {
     
     .hero-buttons {
         flex-direction: column;
+    }
+    
+    .hero-photo {
+        max-width: 240px;
+        padding: 0.25rem;
+    }
+    
+    .family-photo {
+        max-height: 300px;
+        border-radius: 0.25rem;
     }
     
     .preview-card {
