@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact Project Rock A Bye Baby - Reach out for support, media inquiries, or legal consultation">
+    <title>Contact - Project Rock A Bye Baby</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Header & Navigation -->
+    <header class="header" id="header">
+        <nav class="nav">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <a href="index.html">
+                        <h2>Project Rock A Bye Baby</h2>
+                    </a>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <ul class="nav-list">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="about.html" class="nav-link">About the Project</a></li>
+                        <li class="nav-item"><a href="timeline.html" class="nav-link">The Timeline</a></li>
+                        <li class="nav-item"><a href="case-files.html" class="nav-link">The Case Files</a></li>
+                        <li class="nav-item"><a href="letters.html" class="nav-link">The Letters</a></li>
+                        <li class="nav-item"><a href="media.html" class="nav-link">Media Outreach</a></li>
+                        <li class="nav-item"><a href="blog.html" class="nav-link">Blog & Resources</a></li>
+                        <li class="nav-item"><a href="take-action.html" class="nav-link">Take Action</a></li>
+                        <li class="nav-item"><a href="contact.html" class="nav-link active">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="page-hero">
+            <div class="container">
+                <h1>Contact Us</h1>
+                <p class="hero-subtitle">Reach out for support, media inquiries, legal consultation, or to share your
+                    story</p>
+            </div>
+        </section>
+
+        <!-- Contact Options -->
+        <section class="contact-options">
+            <div class="container">
+                <div class="options-grid">
+                    <div class="option-card">
+                        <div class="option-icon">📧</div>
+                        <h3>General Inquiries</h3>
+                        <p>Questions about the project, requests for information, or general support</p>
+                        <a href="#general-form" class="option-link">Send Message</a>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-icon">📰</div>
+                        <h3>Media & Press</h3>
+                        <p>Journalists, podcasters, and content creators seeking interviews or information</p>
+                        <a href="#media-form" class="option-link">Press Inquiry</a>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-icon">⚖️</div>
+                        <h3>Legal Professionals</h3>
+                        <p>Attorneys, advocates, and legal professionals interested in the cases</p>
+                        <a href="#legal-form" class="option-link">Legal Inquiry</a>
+                    </div>
+                    <div class="option-card">
+                        <div class="option-icon">🤝</div>
+                        <h3>Parent Support</h3>
+                        <p>Parents facing similar situations seeking guidance or wanting to share their story</p>
+                        <a href="#support-form" class="option-link">Share Your Story</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Forms -->
+        <section class="forms-section">
+            <div class="container">
+                <!-- General Contact Form -->
+                <div class="form-container" id="general-form">
+                    <h2>General Contact</h2>
+                    <p class="form-description">For general questions, information requests, or project support</p>
+
+                    <form class="contact-form" data-form-type="general">
+                        <div class="form-group">
+                            <label for="general-name">Full Name *</label>
+                            <input type="text" id="general-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="general-email">Email Address *</label>
+                            <input type="email" id="general-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="general-subject">Subject *</label>
+                            <input type="text" id="general-subject" name="subject" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="general-message">Message *</label>
+                            <textarea id="general-message" name="message" rows="5" required
+                                placeholder="Please share your message, question, or how you'd like to support the project..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Media Inquiry Form -->
+                <div class="form-container" id="media-form">
+                    <h2>Media & Press Inquiry</h2>
+                    <p class="form-description">For journalists, podcasters, and media professionals</p>
+
+                    <form class="contact-form" data-form-type="media">
+                        <div class="form-group">
+                            <label for="media-name">Full Name *</label>
+                            <input type="text" id="media-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media-email">Email Address *</label>
+                            <input type="email" id="media-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media-outlet">Media Outlet/Organization *</label>
+                            <input type="text" id="media-outlet" name="outlet" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media-type">Media Type *</label>
+                            <select id="media-type" name="media-type" required>
+                                <option value="">Please select...</option>
+                                <option value="newspaper">Newspaper</option>
+                                <option value="magazine">Magazine</option>
+                                <option value="podcast">Podcast</option>
+                                <option value="radio">Radio</option>
+                                <option value="television">Television</option>
+                                <option value="blog">Blog</option>
+                                <option value="documentary">Documentary</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media-deadline">Deadline (if applicable)</label>
+                            <input type="date" id="media-deadline" name="deadline">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="media-inquiry">Inquiry Details *</label>
+                            <textarea id="media-inquiry" name="inquiry" rows="5" required
+                                placeholder="Please describe your story angle, questions you'd like to explore, interview format, timeline, and any other relevant details..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Media Inquiry</button>
+                    </form>
+                </div>
+
+                <!-- Legal Professional Form -->
+                <div class="form-container" id="legal-form">
+                    <h2>Legal Professional Inquiry</h2>
+                    <p class="form-description">For attorneys, advocates, and legal professionals</p>
+
+                    <form class="contact-form" data-form-type="legal">
+                        <div class="form-group">
+                            <label for="legal-name">Full Name *</label>
+                            <input type="text" id="legal-name" name="name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="legal-email">Email Address *</label>
+                            <input type="email" id="legal-email" name="email" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="legal-firm">Law Firm/Organization *</label>
+                            <input type="text" id="legal-firm" name="firm" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="legal-role">Professional Role *</label>
+                            <select id="legal-role" name="role" required>
+                                <option value="">Please select...</option>
+                                <option value="attorney">Attorney</option>
+                                <option value="paralegal">Paralegal</option>
+                                <option value="advocate">Child/Family Advocate</option>
+                                <option value="academic">Legal Academic/Professor</option>
+                                <option value="researcher">Legal Researcher</option>
+                                <option value="other">Other Legal Professional</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="legal-interest">Area of Interest *</label>
+                            <select id="legal-interest" name="interest" required>
+                                <option value="">Please select...</option>
+                                <option value="constitutional">Constitutional Law</option>
+                                <option value="family">Family Law</option>
+                                <option value="civil-rights">Civil Rights</option>
+                                <option value="collaboration">Potential Collaboration</option>
+                                <option value="consultation">Case Consultation</option>
+                                <option value="academic">Academic Research</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="legal-message">Inquiry Details *</label>
+                            <textarea id="legal-message" name="message" rows="5" required
+                                placeholder="Please describe your professional interest in the case, any specific questions, potential collaboration opportunities, or consultation requests..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Submit Legal Inquiry</button>
+                    </form>
+                </div>
+
+                <!-- Parent Support Form -->
+                <div class="form-container" id="support-form">
+                    <h2>Parent Support & Story Sharing</h2>
+                    <p class="form-description">For parents facing similar situations or wanting to share their
+                        experience</p>
+
+                    <div class="support-notice">
+                        <h4>🤗 You Are Not Alone</h4>
+                        <p>If you're facing similar challenges with family court injustice or parental alienation, know
+                            that your experience matters and you are not alone in this fight.</p>
+                    </div>
+
+                    <form class="contact-form" data-form-type="support">
+                        <div class="form-group">
+                            <label for="support-name">First Name (or anonymous) *</label>
+                            <input type="text" id="support-name" name="name" required
+                                placeholder="You may use a pseudonym for privacy">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support-email">Email Address *</label>
+                            <input type="email" id="support-email" name="email" required>
+                            <small>Your email will be kept strictly confidential</small>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support-state">State/Location (optional)</label>
+                            <input type="text" id="support-state" name="location"
+                                placeholder="General location helps us understand geographic patterns">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support-situation">Your Situation *</label>
+                            <select id="support-situation" name="situation" required>
+                                <option value="">Please select...</option>
+                                <option value="custody-dispute">Custody Dispute</option>
+                                <option value="parental-alienation">Parental Alienation</option>
+                                <option value="support-enforcement">Child Support Enforcement Issues</option>
+                                <option value="due-process">Due Process Violations</option>
+                                <option value="court-corruption">Court System Corruption</option>
+                                <option value="multiple">Multiple Issues</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support-story">Your Story (optional but encouraged)</label>
+                            <textarea id="support-story" name="story" rows="6"
+                                placeholder="Share as much or as little as you're comfortable with. Your story helps us understand the scope of these issues and may help other parents facing similar situations. All stories are kept confidential unless you specifically request otherwise."></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="support-help">How Can We Help? *</label>
+                            <textarea id="support-help" name="help" rows="3" required
+                                placeholder="Are you looking for resources, emotional support, legal guidance, or wanting to connect with other parents in similar situations?"></textarea>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="anonymous" value="yes">
+                                <span class="checkmark"></span>
+                                Keep my inquiry completely anonymous
+                            </label>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="updates" value="yes">
+                                <span class="checkmark"></span>
+                                I'd like to receive updates about the project and resources for parents
+                            </label>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Send Support Request</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alternative Contact Methods -->
+        <section class="alt-contact">
+            <div class="container">
+                <h2>Alternative Contact Methods</h2>
+                <div class="alt-methods">
+                    <div class="method-item">
+                        <h3>📞 Phone Consultation</h3>
+                        <p>For sensitive matters or urgent situations, phone consultations can be arranged through the
+                            contact forms above.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>🔒 Secure Communication</h3>
+                        <p>Legal professionals and media can request encrypted communication channels for sensitive
+                            discussions.</p>
+                    </div>
+                    <div class="method-item">
+                        <h3>📋 Document Submission</h3>
+                        <p>Parents with evidence of similar violations can securely submit documentation to support
+                            systemic reform efforts.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Privacy Notice -->
+        <section class="privacy-notice">
+            <div class="container">
+                <div class="privacy-content">
+                    <h3>🔐 Privacy & Confidentiality</h3>
+                    <p>
+                        We take your privacy seriously. All communications are treated with strict confidentiality.
+                        Personal information is never shared without explicit consent. Parents sharing sensitive
+                        stories have full control over how their information is used.
+                    </p>
+                    <p>
+                        For parents in active legal proceedings, we recommend consulting with your attorney
+                        before sharing detailed case information.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Project Rock A Bye Baby</h3>
+                    <p>Exposing family court injustice and advocating for children's rights to meaningful relationships
+                        with both parents.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="timeline.html">Timeline</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Resources</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://nationalparentsorganization.org" target="_blank" rel="noopener">National
+                                Parents Organization</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">Fathers' Rights Movement</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">Parental Alienation Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Connected</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Project Rock A Bye Baby. All rights reserved. Content is fact-based personal testimony
+                    and public record.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <style>
+        /* Contact page specific styles */
+        .contact-options {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .options-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .option-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .option-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .option-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .option-card h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .option-link {
+            display: inline-block;
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 1rem;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--accent-gold);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .option-link:hover {
+            background-color: var(--accent-gold);
+            color: var(--primary-blue);
+        }
+
+        .forms-section {
+            padding: 5rem 0;
+            background-color: var(--white);
+        }
+
+        .form-container {
+            max-width: 600px;
+            margin: 0 auto 5rem;
+            padding: 3rem;
+            background-color: var(--light-gray);
+            border-radius: 1rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-container h2 {
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .form-description {
+            text-align: center;
+            color: var(--dark-gray);
+            margin-bottom: 2rem;
+        }
+
+        .support-notice {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            border-left: 4px solid var(--accent-gold);
+            margin-bottom: 2rem;
+        }
+
+        .support-notice h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            font-weight: 600;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 1rem;
+            border: 2px solid var(--medium-gray);
+            border-radius: 0.5rem;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-blue);
+        }
+
+        .form-group small {
+            color: var(--medium-gray);
+            font-size: 0.875rem;
+            margin-top: 0.25rem;
+        }
+
+        .checkbox-group {
+            flex-direction: row;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: normal !important;
+            margin-bottom: 0 !important;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            margin: 0;
+            padding: 0;
+            width: auto;
+            height: auto;
+        }
+
+        .alt-contact {
+            padding: 5rem 0;
+            background-color: var(--light-gray);
+        }
+
+        .alt-contact h2 {
+            color: var(--primary-blue);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .alt-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .method-item {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .method-item h3 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+
+        .privacy-notice {
+            background-color: var(--secondary-blue);
+            color: var(--white);
+            padding: 3rem 0;
+        }
+
+        .privacy-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .privacy-content h3 {
+            margin-bottom: 2rem;
+        }
+
+        .privacy-content p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        @media (max-width: 768px) {
+            .options-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-container {
+                margin: 0 1rem 3rem;
+                padding: 2rem;
+            }
+
+            .alt-methods {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</body>
+
+</html>
