@@ -680,3 +680,326 @@ p {
         padding: 2rem 0;
     }
 } 
+
+/* Legal Argument Page Styles */
+.legal-content {
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.8;
+}
+
+.legal-content h2 {
+    color: var(--primary-blue);
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 3px solid var(--accent-gold);
+}
+
+.legal-content h3 {
+    color: var(--secondary-blue);
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    margin: 2rem 0 1rem 0;
+    font-weight: 600;
+}
+
+.legal-content h4 {
+    color: var(--primary-blue);
+    font-family: var(--font-sans);
+    font-size: 1.2rem;
+    margin: 1.5rem 0 0.8rem 0;
+    font-weight: 600;
+}
+
+.legal-content h5 {
+    color: var(--secondary-blue);
+    font-family: var(--font-sans);
+    font-size: 1.1rem;
+    margin: 1.2rem 0 0.6rem 0;
+    font-weight: 600;
+}
+
+.legal-framework,
+.constitutional-violation,
+.culpability-section {
+    background: var(--white);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 4px solid var(--accent-gold);
+}
+
+.violation-item {
+    background: #f8f9fa;
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 6px;
+    border-left: 3px solid var(--primary-blue);
+}
+
+.legal-content ul,
+.legal-content ol {
+    margin: 1rem 0;
+    padding-left: 2rem;
+}
+
+.legal-content li {
+    margin: 0.8rem 0;
+    line-height: 1.7;
+}
+
+.legal-content strong {
+    color: var(--primary-blue);
+    font-weight: 600;
+}
+
+.relief-items ol {
+    counter-reset: relief-counter;
+    list-style: none;
+    padding-left: 0;
+}
+
+.relief-items li {
+    counter-increment: relief-counter;
+    position: relative;
+    padding-left: 3rem;
+    margin: 1.5rem 0;
+    background: #f8f9fa;
+    padding: 1.5rem 1.5rem 1.5rem 3.5rem;
+    border-radius: 6px;
+    border-left: 3px solid var(--accent-gold);
+}
+
+.relief-items li::before {
+    content: counter(relief-counter);
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    background: var(--primary-blue);
+    color: var(--white);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.final-statement {
+    text-align: center;
+    margin: 3rem 0;
+    padding: 2rem;
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--secondary-blue) 100%);
+    color: var(--white);
+    border-radius: 8px;
+}
+
+.final-statement blockquote {
+    margin: 0;
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-style: italic;
+}
+
+.legal-note {
+    background: var(--light-gray);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+    border: 1px solid #e0e0e0;
+}
+
+.legal-note h3 {
+    color: var(--primary-blue);
+    margin-top: 0;
+}
+
+.legal-section {
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.legal-section:last-child {
+    border-bottom: none;
+}
+
+/* Responsive adjustments for legal content */
+@media (max-width: 768px) {
+    .legal-content {
+        padding: 0 1rem;
+    }
+    
+    .legal-framework,
+    .constitutional-violation,
+    .culpability-section {
+        padding: 1.5rem;
+        margin: 1.5rem 0;
+    }
+    
+    .violation-item {
+        padding: 1rem;
+        margin: 1rem 0;
+    }
+    
+    .relief-items li {
+        padding: 1rem 1rem 1rem 3rem;
+    }
+    
+    .legal-content h2 {
+        font-size: 1.7rem;
+    }
+    
+    .legal-content h3 {
+        font-size: 1.3rem;
+    }
+    
+    .final-statement {
+        padding: 1.5rem;
+    }
+    
+    .final-statement blockquote {
+        font-size: 1.1rem;
+    }
+} 
+
+/* Featured Case Section Styles */
+.featured-case {
+    background: linear-gradient(135deg, var(--light-gray) 0%, #f8f9fa 100%);
+    border: 2px solid var(--accent-gold);
+    border-radius: 12px;
+    margin: 3rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.featured-case::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue) 0%, var(--accent-gold) 50%, var(--secondary-blue) 100%);
+}
+
+.case-status.featured {
+    background: linear-gradient(135deg, var(--accent-gold) 0%, #e6a500 100%);
+    color: var(--white);
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.case-highlights {
+    margin: 2rem 0;
+}
+
+.highlight-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+}
+
+.highlight-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e0e0e0;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.highlight-item h4 {
+    color: var(--primary-blue);
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.highlight-item p {
+    color: var(--text-dark);
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.case-actions {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e0e0e0;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+}
+
+.case-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+}
+
+.case-meta span {
+    color: var(--secondary-blue);
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    background: var(--white);
+    border-radius: 15px;
+    border: 1px solid #e0e0e0;
+}
+
+/* Responsive adjustments for featured case */
+@media (max-width: 768px) {
+    .highlight-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .highlight-item {
+        padding: 1rem;
+    }
+    
+    .case-meta {
+        flex-direction: column;
+        gap: 0.5rem;
+        align-items: center;
+    }
+    
+    .btn-large {
+        padding: 0.8rem 1.5rem;
+        font-size: 1rem;
+    }
+} 
