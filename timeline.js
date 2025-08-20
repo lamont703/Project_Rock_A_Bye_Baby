@@ -362,6 +362,25 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Timeline initialized with interactive features');
 });
 
+// Global variable to store scroll position
+let scrollPosition = 0;
+
+// Function to preserve scroll position
+function preserveScrollPosition() {
+    scrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+    document.body.style.position = 'fixed';
+    document.body.style.top = `-${scrollPosition}px`;
+    document.body.style.width = '100%';
+}
+
+// Function to restore scroll position
+function restoreScrollPosition() {
+    document.body.style.position = '';
+    document.body.style.top = '';
+    document.body.style.width = '';
+    window.scrollTo(0, scrollPosition);
+}
+
 // Universal Document Viewer Functionality
 function openDocument(filePath, title) {
     const fileExtension = filePath.split('.').pop().toLowerCase();
@@ -399,9 +418,9 @@ function openPDFDesktop(pdfPath, title) {
     modalTitle.textContent = title;
     iframe.src = pdfPath + '#toolbar=1&navpanes=1&scrollbar=1';
     
-    // Show modal
+    // Preserve scroll position and show modal
+    preserveScrollPosition();
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
     // Add escape key listener
     document.addEventListener('keydown', handleEscapeKey);
@@ -430,9 +449,9 @@ function openImageDesktop(imagePath, title) {
     modalTitle.textContent = title;
     img.src = imagePath;
     
-    // Show modal
+    // Preserve scroll position and show modal
+    preserveScrollPosition();
     modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
     
     // Add escape key listener
     document.addEventListener('keydown', handleEscapeKey);
@@ -514,7 +533,9 @@ function closePDF() {
         modal.style.display = 'none';
         const iframe = modal.querySelector('.pdf-viewer');
         iframe.src = ''; // Clear the PDF to stop loading
-        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Restore scroll position
+        restoreScrollPosition();
         
         // Remove escape key listener
         document.removeEventListener('keydown', handleEscapeKey);
@@ -527,7 +548,9 @@ function closeImage() {
         modal.style.display = 'none';
         const img = modal.querySelector('.image-viewer');
         img.src = ''; // Clear the image to stop loading
-        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Restore scroll position
+        restoreScrollPosition();
         
         // Remove escape key listener
         document.removeEventListener('keydown', handleEscapeKey);
