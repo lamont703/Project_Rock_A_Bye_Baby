@@ -625,3 +625,12 @@
         font-size: 1rem;
     }
 } 
+
+/* Adjust spacing and uniformity for multiple PDF containers */
+.document-evidence .view-document-btn {
+    margin-bottom: 0.75rem;
+}
+
+.document-evidence .view-document-btn:last-child {
+    margin-bottom: 0;
+} 
