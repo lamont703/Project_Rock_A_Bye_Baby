@@ -460,3 +460,72 @@ openPDF = function(pdfPath, title) {
         originalOpenPDF(pdfPath, title);
     }
 }; 
+
+// Image Viewer Functionality
+function openImage(imagePath, title) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('imageModal');
+    if (!modal) {
+        modal = createImageModal();
+    }
+    
+    // Update modal content
+    const modalTitle = modal.querySelector('.image-modal-title');
+    const img = modal.querySelector('.image-viewer');
+    
+    modalTitle.textContent = title;
+    img.src = imagePath;
+    
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Add escape key listener
+    document.addEventListener('keydown', handleEscapeKey);
+}
+
+function createImageModal() {
+    const modal = document.createElement('div');
+    modal.id = 'imageModal';
+    modal.className = 'pdf-modal'; // Reuse styling for simplicity
+    modal.innerHTML = `
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 class="image-modal-title">Image Viewer</h3>
+                <button class="pdf-close" onclick="closeImage()">&times;</button>
+            </div>
+            <img class="image-viewer" style="width: 100%; height: auto;" />
+        </div>
+    `;
+    
+    // Add click outside to close functionality
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closeImage();
+        }
+    });
+    
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function closeImage() {
+    const modal = document.getElementById('imageModal');
+    if (modal) {
+        modal.style.display = 'none';
+        const img = modal.querySelector('.image-viewer');
+        img.src = ''; // Clear the image to stop loading
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleEscapeKey);
+    }
+}
+
+// Update the handleEscapeKey function to close both PDF and image modals
+function handleEscapeKey(e) {
+    if (e.key === 'Escape') {
+        closePDF();
+        closeImage();
+    }
+} 

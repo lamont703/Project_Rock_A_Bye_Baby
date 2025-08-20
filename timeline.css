@@ -533,6 +533,17 @@
     animation: fadeIn 0.3s ease;
 }
 
+/* Image Modal Styling */
+.image-viewer {
+    max-width: 90%;
+    max-height: 80vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    margin: auto;
+    display: block;
+}
+
 .pdf-modal-content {
     position: relative;
     width: 90%;
@@ -542,7 +553,10 @@
     border-radius: 8px;
     overflow: hidden;
     display: flex;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
+    padding: 1rem;
 }
 
 .pdf-modal-header {
