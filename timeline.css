@@ -731,10 +731,24 @@
 
 @media (max-width: 768px) {
     .document-notice {
-        margin: 1rem auto; /* Center the container horizontally */
+        margin: 1rem auto;
         padding: 0.625rem 1rem;
         max-width: 90%;
         text-align: center;
+        overflow: visible;
+        position: relative;
+    }
+    
+    .notice-badge {
+        top: -8px;
+        right: -8px;
+        font-size: 0.65rem;
+        padding: 3px 6px;
+        border-radius: 10px;
+        background: #ef4444 !important;
+        color: white !important;
+        display: block !important;
+        visibility: visible !important;
     }
     
     .document-notice .document-text {
