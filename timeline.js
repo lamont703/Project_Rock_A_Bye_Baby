@@ -362,8 +362,30 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Timeline initialized with interactive features');
 });
 
+// Universal Document Viewer Functionality
+function openDocument(filePath, title) {
+    const fileExtension = filePath.split('.').pop().toLowerCase();
+    
+    if (fileExtension === 'pdf') {
+        openPDF(filePath, title);
+    } else if (fileExtension === 'jpg' || fileExtension === 'jpeg' || fileExtension === 'png') {
+        openImage(filePath, title);
+    } else {
+        // Fallback for other file types
+        window.open(filePath, '_blank');
+    }
+}
+
 // PDF Document Viewer Functionality
 function openPDF(pdfPath, title) {
+    if (isMobileDevice()) {
+        openDocumentMobile(pdfPath, title);
+    } else {
+        openPDFDesktop(pdfPath, title);
+    }
+}
+
+function openPDFDesktop(pdfPath, title) {
     // Create modal if it doesn't exist
     let modal = document.getElementById('pdfModal');
     if (!modal) {
@@ -383,6 +405,55 @@ function openPDF(pdfPath, title) {
     
     // Add escape key listener
     document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Image Viewer Functionality
+function openImage(imagePath, title) {
+    if (isMobileDevice()) {
+        openDocumentMobile(imagePath, title);
+    } else {
+        openImageDesktop(imagePath, title);
+    }
+}
+
+function openImageDesktop(imagePath, title) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('imageModal');
+    if (!modal) {
+        modal = createImageModal();
+    }
+    
+    // Update modal content
+    const modalTitle = modal.querySelector('.image-modal-title');
+    const img = modal.querySelector('.image-viewer');
+    
+    modalTitle.textContent = title;
+    img.src = imagePath;
+    
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Add escape key listener
+    document.addEventListener('keydown', handleEscapeKey);
+}
+
+// Universal mobile document opening
+function openDocumentMobile(filePath, title) {
+    // On mobile, open in new tab for better experience
+    const link = document.createElement('a');
+    link.href = filePath;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    
+    // For downloads, clean up the filename
+    const fileExtension = filePath.split('.').pop().toLowerCase();
+    const cleanTitle = title.replace(/[^a-z0-9]/gi, '_').toLowerCase();
+    link.download = cleanTitle + '.' + fileExtension;
+    
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
 }
 
 function createPDFModal() {
@@ -410,91 +481,19 @@ function createPDFModal() {
     return modal;
 }
 
-function closePDF() {
-    const modal = document.getElementById('pdfModal');
-    if (modal) {
-        modal.style.display = 'none';
-        const iframe = modal.querySelector('.pdf-viewer');
-        iframe.src = ''; // Clear the PDF to stop loading
-        document.body.style.overflow = ''; // Restore scrolling
-        
-        // Remove escape key listener
-        document.removeEventListener('keydown', handleEscapeKey);
-    }
-}
-
-function handleEscapeKey(e) {
-    if (e.key === 'Escape') {
-        closePDF();
-    }
-}
-
-// Mobile-friendly PDF handling
-function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-}
-
-// Enhanced PDF opening for mobile devices
-function openPDFMobile(pdfPath, title) {
-    if (isMobileDevice()) {
-        // On mobile, open in new tab for better experience
-        const link = document.createElement('a');
-        link.href = pdfPath;
-        link.target = '_blank';
-        link.rel = 'noopener noreferrer';
-        link.download = title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.pdf';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    } else {
-        openPDF(pdfPath, title);
-    }
-}
-
-// Update the openPDF function to be mobile-aware
-const originalOpenPDF = openPDF;
-openPDF = function(pdfPath, title) {
-    if (isMobileDevice() && window.innerWidth < 768) {
-        openPDFMobile(pdfPath, title);
-    } else {
-        originalOpenPDF(pdfPath, title);
-    }
-}; 
-
-// Image Viewer Functionality
-function openImage(imagePath, title) {
-    // Create modal if it doesn't exist
-    let modal = document.getElementById('imageModal');
-    if (!modal) {
-        modal = createImageModal();
-    }
-    
-    // Update modal content
-    const modalTitle = modal.querySelector('.image-modal-title');
-    const img = modal.querySelector('.image-viewer');
-    
-    modalTitle.textContent = title;
-    img.src = imagePath;
-    
-    // Show modal
-    modal.style.display = 'block';
-    document.body.style.overflow = 'hidden'; // Prevent background scrolling
-    
-    // Add escape key listener
-    document.addEventListener('keydown', handleEscapeKey);
-}
-
 function createImageModal() {
     const modal = document.createElement('div');
     modal.id = 'imageModal';
-    modal.className = 'pdf-modal'; // Reuse styling for simplicity
+    modal.className = 'pdf-modal'; // Reuse styling
     modal.innerHTML = `
         <div class="pdf-modal-content">
             <div class="pdf-modal-header">
                 <h3 class="image-modal-title">Image Viewer</h3>
                 <button class="pdf-close" onclick="closeImage()">&times;</button>
             </div>
-            <img class="image-viewer" style="width: 100%; height: auto;" />
+            <div class="image-container">
+                <img class="image-viewer" alt="Document Image" />
+            </div>
         </div>
     `;
     
@@ -507,6 +506,19 @@ function createImageModal() {
     
     document.body.appendChild(modal);
     return modal;
+}
+
+function closePDF() {
+    const modal = document.getElementById('pdfModal');
+    if (modal) {
+        modal.style.display = 'none';
+        const iframe = modal.querySelector('.pdf-viewer');
+        iframe.src = ''; // Clear the PDF to stop loading
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleEscapeKey);
+    }
 }
 
 function closeImage() {
@@ -522,10 +534,14 @@ function closeImage() {
     }
 }
 
-// Update the handleEscapeKey function to close both PDF and image modals
 function handleEscapeKey(e) {
     if (e.key === 'Escape') {
         closePDF();
         closeImage();
     }
+}
+
+// Mobile-friendly detection
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth < 768;
 } 

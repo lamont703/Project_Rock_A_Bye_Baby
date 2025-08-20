@@ -533,15 +533,25 @@
     animation: fadeIn 0.3s ease;
 }
 
+/* Image Container Styling */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    padding: 1rem;
+}
+
 /* Image Modal Styling */
 .image-viewer {
-    max-width: 90%;
-    max-height: 80vh;
+    max-width: 100%;
+    max-height: 100%;
     width: auto;
     height: auto;
     object-fit: contain;
-    margin: auto;
-    display: block;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .pdf-modal-content {
@@ -553,10 +563,7 @@
     border-radius: 8px;
     overflow: hidden;
     display: flex;
-    justify-content: center;
-    align-items: center;
     flex-direction: column;
-    padding: 1rem;
 }
 
 .pdf-modal-header {
@@ -635,10 +642,14 @@
         padding: 0.75rem 1rem;
     }
     
-    .pdf-modal-title {
+    .pdf-modal-title, .image-modal-title {
         font-size: 1rem;
     }
-} 
+    
+    .image-container {
+        padding: 0.5rem;
+    }
+}
 
 /* Adjust spacing and uniformity for multiple PDF containers */
 .document-evidence .view-document-btn {
