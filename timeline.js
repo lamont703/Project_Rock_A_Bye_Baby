@@ -360,4 +360,103 @@ document.addEventListener('DOMContentLoaded', function() {
     };
 
     console.log('Timeline initialized with interactive features');
-}); 
+});
+
+// PDF Document Viewer Functionality
+function openPDF(pdfPath, title) {
+    // Create modal if it doesn't exist
+    let modal = document.getElementById('pdfModal');
+    if (!modal) {
+        modal = createPDFModal();
+    }
+    
+    // Update modal content
+    const modalTitle = modal.querySelector('.pdf-modal-title');
+    const iframe = modal.querySelector('.pdf-viewer');
+    
+    modalTitle.textContent = title;
+    iframe.src = pdfPath + '#toolbar=1&navpanes=1&scrollbar=1';
+    
+    // Show modal
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    
+    // Add escape key listener
+    document.addEventListener('keydown', handleEscapeKey);
+}
+
+function createPDFModal() {
+    const modal = document.createElement('div');
+    modal.id = 'pdfModal';
+    modal.className = 'pdf-modal';
+    modal.innerHTML = `
+        <div class="pdf-modal-content">
+            <div class="pdf-modal-header">
+                <h3 class="pdf-modal-title">Document Viewer</h3>
+                <button class="pdf-close" onclick="closePDF()">&times;</button>
+            </div>
+            <iframe class="pdf-viewer" frameborder="0"></iframe>
+        </div>
+    `;
+    
+    // Add click outside to close functionality
+    modal.addEventListener('click', function(e) {
+        if (e.target === modal) {
+            closePDF();
+        }
+    });
+    
+    document.body.appendChild(modal);
+    return modal;
+}
+
+function closePDF() {
+    const modal = document.getElementById('pdfModal');
+    if (modal) {
+        modal.style.display = 'none';
+        const iframe = modal.querySelector('.pdf-viewer');
+        iframe.src = ''; // Clear the PDF to stop loading
+        document.body.style.overflow = ''; // Restore scrolling
+        
+        // Remove escape key listener
+        document.removeEventListener('keydown', handleEscapeKey);
+    }
+}
+
+function handleEscapeKey(e) {
+    if (e.key === 'Escape') {
+        closePDF();
+    }
+}
+
+// Mobile-friendly PDF handling
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
+// Enhanced PDF opening for mobile devices
+function openPDFMobile(pdfPath, title) {
+    if (isMobileDevice()) {
+        // On mobile, open in new tab for better experience
+        const link = document.createElement('a');
+        link.href = pdfPath;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.download = title.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    } else {
+        openPDF(pdfPath, title);
+    }
+}
+
+// Update the openPDF function to be mobile-aware
+const originalOpenPDF = openPDF;
+openPDF = function(pdfPath, title) {
+    if (isMobileDevice() && window.innerWidth < 768) {
+        openPDFMobile(pdfPath, title);
+    } else {
+        originalOpenPDF(pdfPath, title);
+    }
+}; 

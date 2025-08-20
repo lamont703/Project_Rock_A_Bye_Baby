@@ -417,8 +417,211 @@
     transform: scale(1.3);
 }
 
+/* Document Evidence Styling */
+.document-evidence {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border: 1px solid #cbd5e0;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+}
+
+.document-evidence::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #3b82f6, #1d4ed8);
+}
+
+.evidence-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+    color: #475569;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.document-icon {
+    color: #3b82f6;
+    flex-shrink: 0;
+}
+
+.evidence-label {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.view-document-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.view-document-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.view-document-btn:hover::before {
+    left: 100%;
+}
+
+.view-document-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 25px rgba(59, 130, 246, 0.3);
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+}
+
+.view-document-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 15px rgba(59, 130, 246, 0.2);
+}
+
+.btn-icon {
+    flex-shrink: 0;
+    transition: transform 0.3s ease;
+}
+
+.view-document-btn:hover .btn-icon {
+    transform: scale(1.1);
+}
+
+.btn-subtitle {
+    font-size: 0.8rem;
+    opacity: 0.9;
+    font-weight: 400;
+    margin-left: auto;
+    font-style: italic;
+}
+
+/* PDF Modal Styling */
+.pdf-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    animation: fadeIn 0.3s ease;
+}
+
+.pdf-modal-content {
+    position: relative;
+    width: 90%;
+    height: 90%;
+    margin: 5% auto;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.pdf-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #1e293b;
+    color: white;
+    border-bottom: 1px solid #334155;
+}
+
+.pdf-modal-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.pdf-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.pdf-close:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.pdf-viewer {
+    flex: 1;
+    border: none;
+    width: 100%;
+    height: 100%;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
 @media (max-width: 768px) {
     .timeline-progress {
         display: none;
+    }
+    
+    .document-evidence {
+        margin-top: 0.75rem;
+        padding: 0.75rem;
+    }
+    
+    .view-document-btn {
+        padding: 0.875rem;
+        font-size: 0.9rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+    
+    .btn-subtitle {
+        margin-left: 0;
+        align-self: flex-start;
+    }
+    
+    .pdf-modal-content {
+        width: 95%;
+        height: 95%;
+        margin: 2.5% auto;
+    }
+    
+    .pdf-modal-header {
+        padding: 0.75rem 1rem;
+    }
+    
+    .pdf-modal-title {
+        font-size: 1rem;
     }
 } 
